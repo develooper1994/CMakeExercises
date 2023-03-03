@@ -72,8 +72,8 @@ message from cmake argument: this is an argument
 
 # data type simulation
 message("-------------------------------------")
-## ENG: You Can Simulate a Data Structure using Prefixes
-## TR : Alt tirelerle veri yapılarını taklit edilebilir.
+## >- ENG: You Can Simulate a Data Structure using Prefixes
+## >- TR : Alt tirelerle veri yapılarını taklit edilebilir.
 set(MERCEDES "MERCEDES")
 set(MERCEDES_MODEL "MERCEDES GT")
 set(MERCEDES_YEAR "2017")
@@ -82,8 +82,8 @@ message("MODEL: ${${MERCEDES}_MODEL} \nYEAR: ${${MERCEDES}_YEAR} \nKM:${${MERCED
 
 # math
 message("-------------------------------------")
-## ENG: Every Statement is a Command
-## TR : Her ifade bir komuttur.
+## >- ENG: Every Statement is a Command
+## >- TR : Her ifade bir komuttur.
 math(EXPR MY_SUM "1+1")
 message("The sum is ${MY_SUM}")
 math(EXPR MY_SUM_double ${MY_SUM}*2)
@@ -123,8 +123,8 @@ endwhile()
 
 # lists
 message("-------------------------------------")
-## ENG: Lists are Just Semicolon-Delimited Strings
-## TR : Liste yapısı sadece noktalı virgülle ayrılmış stringlerdir.
+## >- ENG: Lists are Just Semicolon-Delimited Strings
+## >- TR : Liste yapısı sadece noktalı virgülle ayrılmış stringlerdir.
 set(LIST1 This is a semicolon sperated string)
 message("LIST1: ${LIST1}")
 
@@ -150,8 +150,8 @@ endforeach()
 
 # function
 message("-------------------------------------")
-## ENG: Functions Run In Their Own Scope; Macros Don’t
-## TR : Fonksiyonlar kendi içinde çalışırken macrolar çalışmaz.
+## >- ENG: Functions Run In Their Own Scope; Macros Don’t
+## >- TR : Fonksiyonlar kendi içinde çalışırken macrolar çalışmaz.
 function(ADD VARNAME VALUE1 VALUE2)
     math(EXPR RESULT "${VALUE1}+${VALUE2}")
     #set(${VARNAME} "${RESULT}")
@@ -164,8 +164,8 @@ message("function SUM: ${RESULT}")
 
 ## macro
 message("-------------------------------------")
-## ENG: Functions Run In Their Own Scope; Macros Don’t
-## TR : Fonksiyonlar kendi içinde çalışırken macrolar çalışmaz.
+## >- ENG: Functions Run In Their Own Scope; Macros Don’t
+## >- TR : Fonksiyonlar kendi içinde çalışırken macrolar çalışmaz.
 macro(ADD VARNAME VALUE1 VALUE2)
     math(EXPR RESULT "${VALUE1}+${VALUE2}")
     set(${VARNAME} "${RESULT}")  # There is "no-scope" ;)
@@ -208,5 +208,7 @@ It uses the variable """CMAKE_MODULE_PATH""" as a search path.
 - The """find_package""" command looks for scripts of the form """Find*.cmake""" and also runs them in the same scope. Such scripts are often used to help find external libraries. For example, 
 if there is a file named FindSDL2.cmake in the search path, """find_package(SDL2) is equivalent to include(FindSDL2.cmake)""". 
 (Note that: there are several ways to use the find_package command – this is just one of them.)
-- CMake’s """add_subdirectory""" command, on the other hand, """creates a new scope""", then executes the script named """CMakeLists.txt""" from the specified directory in that new scope. You """typically use it to add another CMake-based subproject""", such as a library or executable, to the calling project. The targets defined by the subproject are added to the build pipeline unless otherwise specified. None of the variables defined in the subproject’s script will pollute the parent’s scope unless the set command’s PARENT_SCOPE option is used.
+- CMake’s """add_subdirectory""" command, on the other hand, """creates a new scope""", then executes the script named """CMakeLists.txt""" from the specified directory in that new scope. You """typically use it to add another CMake-based subproject""", such as a library or executable, to the calling project. The targets defined by the subproject are added to the build pipeline unless otherwise specified. None of the variables defined in the subproject’s script will pollute the parent’s scope unless the set command’s """PARENT_SCOPE""" option is used.
+- https://preshing.com/images/cmake-variable-scopes.png
 ]]
+
