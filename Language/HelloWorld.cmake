@@ -66,3 +66,9 @@ message from cmake argument: this is an argument
 
 
 # data type simulation
+set(MERCEDES "MERCEDES")
+set(MERCEDES_MODEL "MERCEDES GT")
+set(MERCEDES_YEAR "2017")
+set(MERCEDES_KM "70.000")
+message("MODEL: ${${MERCEDES}_MODEL} \nYEAR: ${${MERCEDES}_YEAR} \nKM:${${MERCEDES}_KM}")
+
