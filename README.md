@@ -7,5 +7,8 @@ I am learning cmake to create template my projects.
 - https://www.youtube.com/watch?v=bsXLMQ6WgIk
 - https://cmake.org/cmake/help/latest/guide/tutorial/index.html
 
+## Source
+- https://github.com/develooper1994/CMakeExercises/blob/main/Language/TheLanguage.md
+
 # Contributers
 Mustafa Selçuk Çağlar
