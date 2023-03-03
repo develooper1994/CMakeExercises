@@ -149,3 +149,53 @@ endforeach()
 message("-------------------------------------")
 ## ENG: Functions Run In Their Own Scope; Macros Don’t
 ## TR : Fonksiyonlar kendi içinde çalışırken macrolar çalışmaz.
+function(ADD VARNAME VALUE1 VALUE2)
+    math(EXPR RESULT "${VALUE1}+${VALUE2}")
+    #set(${VARNAME} "${RESULT}")
+    set(${VARNAME} "${RESULT}" PARENT_SCOPE)  # Return a value
+endfunction()
+set(A1 "1")
+set(A2 "2")
+ADD(RESULT ${A1} ${A2})  # to get value from function name your return variable
+message("function SUM: ${RESULT}")
+
+## macro
+message("-------------------------------------")
+## ENG: Functions Run In Their Own Scope; Macros Don’t
+## TR : Fonksiyonlar kendi içinde çalışırken macrolar çalışmaz.
+macro(ADD VARNAME VALUE1 VALUE2)
+    math(EXPR RESULT "${VALUE1}+${VALUE2}")
+    set(${VARNAME} "${RESULT}")  # There is "no-scope" ;)
+    #set(${VARNAME} "${RESULT}" PARENT_SCOPE)  # Return a value
+endmacro()
+set(A1 "1")
+set(A2 "2")
+ADD(RESULT ${A1} ${A2})  # to get value from function name your return variable
+message("macro SUM: ${RESULT}")
+
+#[[
+- Both functions and macros accept an arbitrary number of arguments. 
+- Unnamed arguments are exposed to the function as a list, through a special variable named """ARGN""". 
+- Here’s a function that doubles every argument it receives, printing each one on a separate line:
+]]
+## example
+message("-------------------------------------")
+function(doubleEach RETURNNAME)
+    set(TEMP)
+    foreach(ARG ${ARGN})
+        math(EXPR A "${ARG}*2")
+        #set(${TEMP} "${TEMP} ${A}")
+        list(APPEND TEMP ${A})
+    endforeach()
+    set(${RETURNNAME} "${TEMP}" PARENT_SCOPE)
+endfunction()
+
+# only returns last element
+doubleEach(RESULT 0 1 2 3 4 5 6 7 8 9)
+message("doubleEach: ${RESULT}")
+
+
+
+
+# Including Other Scripts
+
