@@ -1,5 +1,39 @@
 # [Resource](https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/)
-# Commandline: cmake -DARGUMENT='this is an argument' -P .\HelloWorld.cmake
+> Commandline: ```cmake -DARGUMENT='this is an argument' -P .\HelloWorld.cmake```
+> RESULT:
+```
+PS C:\Users\selcu\repos\CMakeExercises\Language> cmake -DARGUMENT='this is an argument' -P .\HelloWorld.cmake
+Hello World Captain!
+Hello World Captain!
+message from cmake argument: this is an argument
+-------------------------------------
+MODEL: MERCEDES GT 
+YEAR: 2017 
+KM:70.000
+-------------------------------------
+The sum is 2
+The sum is 4
+-------------------------------------
+You are creating a WIN32 project
+21 < 31
+21 < 30
+21 < 29
+21 < 28
+21 < 27
+21 < 26
+21 < 25
+-------------------------------------
+Apple
+Orange
+Banana
+Kiwie
+-------------------------------------
+function SUM: 3
+-------------------------------------
+macro SUM: 3
+-------------------------------------
+doubleEach: 0;2;4;6;8;10;12;14;16;18
+```
 
 # Hello World
 ```
