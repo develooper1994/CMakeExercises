@@ -77,3 +77,33 @@ math(EXPR MY_SUM "1+1")
 message("The sum is ${MY_SUM}")
 math(EXPR MY_SUM_double ${MY_SUM}*2)
 message("The sum is ${MY_SUM_double}")
+
+# Flow Control
+## if-elseif-else
+if(WIN32)
+    message("You are creating a WIN32 project")
+elseif(LINUX)
+    message("You are creating a LINUX project")
+else()
+    message("You are creating a <unknown os> project")
+endif(WIN32)
+
+## loop
+### while
+set(AGE1 "21")
+set(AGE2 "31")
+#set(AGE2 "11")
+
+while("1")
+    if(${AGE1} LESS ${AGE2})  # AGE1 < AGE2
+        message("${AGE1} < ${AGE2}")
+        math(EXPR AGE2 "${AGE2}-1")
+    elseif(${AGE1} GREATER ${AGE2})    # AGE1 > AGE2
+        message("${AGE1} > ${AGE2}")
+        math(EXPR AGE2 "${AGE2}+1")
+    elseif(${AGE1} EQUAL ${AGE2})    # AGE1 == AGE2
+        message(message("${AGE1} == ${AGE2}"))
+        break()
+    endif()
+endwhile()
+
