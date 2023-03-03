@@ -72,3 +72,8 @@ set(MERCEDES_YEAR "2017")
 set(MERCEDES_KM "70.000")
 message("MODEL: ${${MERCEDES}_MODEL} \nYEAR: ${${MERCEDES}_YEAR} \nKM:${${MERCEDES}_KM}")
 
+# math
+math(EXPR MY_SUM "1+1")
+message("The sum is ${MY_SUM}")
+math(EXPR MY_SUM_double ${MY_SUM}*2)
+message("The sum is ${MY_SUM_double}")
