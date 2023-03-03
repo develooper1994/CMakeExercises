@@ -1,3 +1,6 @@
+# [Thansk to RESOURCE]: (https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/)
+# Commandline: cmake -DARGUMENT='this is an argument' -P .\HelloWorld.cmake
+
 # Hello World
 message("Hello World Captain!")
 
@@ -198,4 +201,12 @@ message("doubleEach: ${RESULT}")
 
 
 # Including Other Scripts
-
+#[[
+- CMake variables are defined at file scope. The include command executes another CMake script in the same scope as the calling script. 
+It’s a lot like the #include directive in C/C++. It’s typically used to define a common set of functions or macros in the calling script. 
+It uses the variable """CMAKE_MODULE_PATH""" as a search path.
+- The """find_package""" command looks for scripts of the form """Find*.cmake""" and also runs them in the same scope. Such scripts are often used to help find external libraries. For example, 
+if there is a file named FindSDL2.cmake in the search path, """find_package(SDL2) is equivalent to include(FindSDL2.cmake)""". 
+(Note that: there are several ways to use the find_package command – this is just one of them.)
+- CMake’s """add_subdirectory""" command, on the other hand, """creates a new scope""", then executes the script named """CMakeLists.txt""" from the specified directory in that new scope. You """typically use it to add another CMake-based subproject""", such as a library or executable, to the calling project. The targets defined by the subproject are added to the build pipeline unless otherwise specified. None of the variables defined in the subproject’s script will pollute the parent’s scope unless the set command’s PARENT_SCOPE option is used.
+]]
