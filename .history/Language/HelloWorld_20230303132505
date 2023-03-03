@@ -1,7 +1,0 @@
-# Hello World
-message("Hello World Captain!")
-
-# variable Hello World
-set(name "Captain")
-message("Hello ${name}!")
-

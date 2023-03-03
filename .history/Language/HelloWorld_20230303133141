@@ -1,9 +1,0 @@
-# Hello World
-message("Hello World Captain!")
-
-# variable Hello World
-set(name "Captain")
-message("Hello World ${name}!")
-
-# variable from cmake argument
-message("Hello ${NAME}!")
